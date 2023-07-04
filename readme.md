@@ -1,0 +1,56 @@
+# OPTIONWIESS - Options Chain Website 
+
+Options Trading Solution with real-time analytics and insights at a glance providing seamless trading experience and unparalleled accuracy.
+
+# Hi, We are Team Kratos ! 👋
+## We Introduce you 
+
+## Utilities/Functionalities Implemented
+
+- Welcoming Landing page from where you are just one entry away from connecting to your options 
+- Intuitive Options Chains with separe Call and Put Options 
+- Colour coded In-the-money and Out-of-money for at a glance information of Option Status
+- Accurately calculated Implied Volatility for Call and Put Options
+- Table disply of Auto-Updating on change, Feilds of recieved packets
+- Underlying and Expiry Date Filters so you can focous on what you want with useful sort feature
+- Friendly and Helpful chatbot to fill in about Frequently asked Questions
+- About Team page just so you who all made OPTIONWIESS possible
+## Run OptionWiess Locally
+
+Clone the project
+
+```bash
+  git clone https://link-to-project
+```
+Go to the project directory
+
+```bash
+  cd my-project
+```
+Start the data stream 
+
+```bash
+  java -Ddebug=true -Dspeed=1 -classpath feed-play-1.0.jar hackathon.player.Main dataset.csv #port
+```
+Run our flask app.py
+```bash
+  python app.py
+```
+Enter the same port on Website
+
+## Demo
+
+Insert gif or link to demo
+
+
+## Necessary libraries
+
+To our project you will just need
+
+```
+  pip install numpy
+  pip install scipy
+  pip install flask
+  pip install pandas
+```
+
