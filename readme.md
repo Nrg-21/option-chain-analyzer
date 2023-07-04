@@ -18,6 +18,13 @@ Options Trading Solution with real-time analytics and insights at a glance provi
 - Underlying and Expiry Date Filters so you can focous on what you want with useful sort feature
 - Friendly and Helpful chatbot to fill in about Frequently asked Questions
 - About Team page just so you who all made OPTIONWIESS possible
+
+## UI Snippets
+
+![welcome](https://github.com/anay15/option-chain-analyzer/assets/72351252/f1883eab-8612-417c-8047-92ea33dd029e)
+![chatboy](https://github.com/anay15/option-chain-analyzer/assets/72351252/904f9dd4-1ace-4248-b815-ed611350bb0e)
+![image](https://github.com/anay15/option-chain-analyzer/assets/72351252/a715d296-5aaa-4397-af32-34922d6019d0)
+
 ## Run OptionWiess Locally
 
 Clone the project
@@ -42,6 +49,7 @@ Run our flask app.py
 Enter the same port on Website
 
 ## Demo
+
 
 Insert gif or link to demo
 
