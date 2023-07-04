@@ -23,7 +23,8 @@ Options Trading Solution with real-time analytics and insights at a glance provi
 ## UI Snippets
 ![welcome](https://github.com/anay15/option-chain-analyzer/assets/72351252/9877109f-bbb3-43a0-a4d1-0a2472338ba4)
 ![chatboy](https://github.com/anay15/option-chain-analyzer/assets/72351252/c470abb3-2177-4d50-b9a2-509b3ab9ce9e)
-![welcome](https://github.com/anay15/option-chain-analyzer/assets/72351252/a5e8d163-5ce6-4aa1-8301-ae80db142c8e)
+![image](https://github.com/anay15/option-chain-analyzer/assets/72351252/6a4a17ac-7b60-49b4-b3d2-cff523fcaa78)
+
 
 
 ## Run OptionWiess Locally
