@@ -4,7 +4,8 @@ Options Trading Solution with real-time analytics and insights at a glance provi
 
 # Hi, We are Team Kratos ! 👋
 ## We Introduce you
-............![logo](https://github.com/anay15/option-chain-analyzer/assets/72351252/7b9e746d-72e6-4353-af38-6824496ed7e4)
+............
+# ![logo](https://github.com/anay15/option-chain-analyzer/assets/72351252/7b9e746d-72e6-4353-af38-6824496ed7e4)...........
 
 
 ## Utilities/Functionalities Implemented
