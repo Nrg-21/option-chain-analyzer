@@ -5,7 +5,8 @@ Options Trading Solution with real-time analytics and insights at a glance provi
 # Hi, We are Team Kratos ! 👋
 ## We Introduce you
 
-  ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎  ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎  ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎  ‎ ‎ ‎ ‎ ‎ ![logo](https://github.com/anay15/option-chain-analyzer/assets/72351252/7b9e746d-72e6-4353-af38-6824496ed7e4)
+
+  ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎  ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎  ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎  ‎ ‎ ‎ ‎ ‎ ![logo](https://github.com/anay15/option-chain-analyzer/assets/72351252/ae9f002f-3433-4e2c-8b25-537f5328929d)
 
 
 ## Utilities/Functionalities Implemented
@@ -20,10 +21,10 @@ Options Trading Solution with real-time analytics and insights at a glance provi
 - About Team page just so you who all made OPTIONWIESS possible
 
 ## UI Snippets
+![welcome](https://github.com/anay15/option-chain-analyzer/assets/72351252/9877109f-bbb3-43a0-a4d1-0a2472338ba4)
+![chatboy](https://github.com/anay15/option-chain-analyzer/assets/72351252/c470abb3-2177-4d50-b9a2-509b3ab9ce9e)
+![welcome](https://github.com/anay15/option-chain-analyzer/assets/72351252/a5e8d163-5ce6-4aa1-8301-ae80db142c8e)
 
-![welcome](https://github.com/anay15/option-chain-analyzer/assets/72351252/f1883eab-8612-417c-8047-92ea33dd029e)
-![chatboy](https://github.com/anay15/option-chain-analyzer/assets/72351252/904f9dd4-1ace-4248-b815-ed611350bb0e)
-![image](https://github.com/anay15/option-chain-analyzer/assets/72351252/a715d296-5aaa-4397-af32-34922d6019d0)
 
 ## Run OptionWiess Locally
 
@@ -49,10 +50,9 @@ Run our flask app.py
 Enter the same port on Website
 
 ## Demo
-
-
-Insert gif or link to demo
-
+```
+https://drive.google.com/file/d/1gS3kGiBfp7aP4yvKGpa0fjmYvYUC96Xg/view?usp=sharing
+```
 
 ## Necessary libraries
 
