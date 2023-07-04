@@ -51,6 +51,12 @@ Run our flask app.py
 Enter the same port on Website
 
 ## Demo
+
+
+https://github.com/anay15/option-chain-analyzer/assets/72351252/fa25b3af-8bae-4649-a15d-e422820eee59
+
+
+
 ```
 https://drive.google.com/file/d/1gS3kGiBfp7aP4yvKGpa0fjmYvYUC96Xg/view?usp=sharing
 ```
