@@ -23,7 +23,7 @@ Options Trading Solution with real-time analytics and insights at a glance provi
 Clone the project
 
 ```bash
-  git clone [https://link-to-project](https://github.com/anay15/option-chain-analyzer)
+  git clone https://github.com/anay15/option-chain-analyzer 
 ```
 Go to the project directory
 
@@ -33,7 +33,7 @@ Go to the project directory
 Start the data stream 
 
 ```bash
-  java -Ddebug=true -Dspeed=1 -classpath feed-play-1.0.jar hackathon.player.Main dataset.csv #port
+  java -classpath <path_to_jar>\feed-play-1.0.jar hackathon.player.Main <input_file> <listening_port>
 ```
 Run our flask app.py
 ```bash
