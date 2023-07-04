@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto"
+    />
+    <link rel="stylesheet" href="../static/css/welcome.css" />
+    <title>OptionWeiss</title>
+    <link rel="icon" type="image/x-icon" href="../static/assets/favicon.ico" />
+  </head>
+  <body>
+    <div class="menu-wrap">
+      <input type="checkbox" class="toggler" />
+      <div class="hamburger"><div></div></div>
+      <div class="menu">
+        <div>
+          <div>
+            <ul>
+              <li><a href="/">Home</a></li>
+              <li><a href="/about">Our Team</a></li>
+              <!-- <li><a href="#">Services</a></li>
+              <li><a href="#">Contact</a></li> -->
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="port-container">
+      <h1>WELCOME</h1>
+      <form class="port-no" action="/home" method="post">
+        <input
+          type="text"
+          name="port"
+          placeholder="Enter port number from 1024-65535"
+          pattern="102[4-9]|10[3-9][0-9]|1[1-9][0-9]{2}|[2-5][0-9]{3}|6[0-4][0-9]{2}|65[0-4][0-9]|655[0-3][0-5]"
+          required
+        />
+        <button type="submit">Start</button>
+      </form>
+    </div>
+    <div style="position: fixed; bottom: 15px; right: 15px; z-index: 999">
+      <iframe
+        src="https://console.dialogflow.com/api-client/demo/embedded/c6f0f2ec-35b6-441a-9dbc-9178a37e4294"
+        id="dialogFrame"
+        allow="microphone;"
+        width="350"
+        height="430"
+        style="display: none; opacity: 0.9"
+      >
+      </iframe>
+      <button class="dialog-button" onclick="toggleIframe()"></button>
+    </div>
+    <script>
+      function toggleIframe() {
+        var iframe = document.getElementById("dialogFrame")
+        iframe.style.display =
+          iframe.style.display === "none" ? "block" : "none"
+      }
+    </script>
+  </body>
+</html>

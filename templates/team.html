@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Our Team</title>
+    <link rel="icon" type="image/x-icon" href="../static/assets/favicon.ico" />
+    <link rel="stylesheet" href="../static/css/welcome.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      html {
+        box-sizing: border-box;
+      }
+
+      *,
+      *:before,
+      *:after {
+        box-sizing: inherit;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        background: url("../static/assets/team-bg.jpg") center center fixed;
+        background-size: cover;
+        color: #ffffff; /* White text color */
+      }
+
+      .row {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        padding: 20px;
+      }
+
+      .column {
+        flex-basis: 33.33%;
+        padding: 10px;
+        text-align: center;
+      }
+
+      .card {
+        background-color: rgba(0, 0, 0, 0.8);
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        padding: 20px;
+        color: #ffffff; /* White text color */
+      }
+
+      .card img {
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+        object-position: center center;
+        border-radius: 50%;
+        border: 5px solid rgba(255, 255, 255, 0.5);
+        filter: grayscale(100%);
+        transition: filter 0.3s ease-in-out;
+      }
+
+      .card img:hover {
+        filter: grayscale(0%);
+      }
+
+      .card h2 {
+        margin-top: 10px;
+        font-size: 24px;
+        color: #ffffff; /* White text color */
+      }
+
+      .card p {
+        margin: 10px 0;
+        font-size: 16px;
+      }
+
+      .team-heading {
+        text-align: center;
+        font-size: 36px;
+        margin-top: 20px;
+        color: white; /* Dark text color */
+        padding: 10px;
+      }
+
+      .team-description {
+        text-align: center;
+        font-size: 20px;
+        margin-bottom: 20px;
+        color: white; /* Black text color */
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="menu-wrap">
+      <input type="checkbox" class="toggler" />
+      <div class="hamburger"><div></div></div>
+      <div class="menu">
+        <div>
+          <div>
+            <ul>
+              <li><a href="/">Home</a></li>
+              <li><a href="/about">Our Team</a></li>
+              <!-- <li><a href="#">Services</a></li>
+              <li><a href="#">Contact</a></li> -->
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <h1 class="team-heading">The Team</h1>
+    <p class="team-description">
+      This is the team that made this project possible.
+    </p>
+    <div class="row">
+      <div class="column">
+        <div class="card">
+          <img src="../static/assets/profile/nish.png" alt="Nishant" />
+          <h2>Nishant Chetia</h2>
+          <p>Developer</p>
+          <p>
+            A tech wizard who effortlessly bridges the gap between front-end and
+            back-end development, turning ideas into robust and seamless digital
+            experiences.
+          </p>
+          <p>nishant.chetia@somaiya.edu</p>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="card">
+          <img src="../static/assets/profile/mihir.png" alt="Mihir" />
+          <h2>Mihir Sheth</h2>
+          <p>Developer</p>
+          <p>
+            A design virtuoso, orchestrating captivating user experiences that
+            bring innovative solutions to life, making technology dance to the
+            rhythm of user needs and desires.
+          </p>
+          <p>sheth.mn@somaiya.edu</p>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="card">
+          <img src="../static/assets/profile/image.png" alt="Tattvam" />
+          <h2>Tattvam Shah</h2>
+          <p>Developer</p>
+          <p>
+            A data sorcerer, weaving powerful backend solutions that seamlessly
+            support captivating user experiences, effortlessly blending data
+            processing with robust functionality.
+          </p>
+          <p>tattvam.s@somaiya.edu</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="column">
+        <div class="card">
+          <img src="../static/assets/profile/shivam.jpg" alt="Shivam" />
+          <h2>Shivam Nikam</h2>
+          <p>Developer</p>
+          <p>
+            A backend and socket programming virtuoso, Shivam fearlessly delves
+            into the depths of technology, skillfully crafting robust
+            server-side solutions while leveraging the power of sockets for
+            seamless real-time communication and data exchange.
+          </p>
+          <p>shivam.nikam@somaiya.edu</p>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="card">
+          <img src="../static/assets/profile/anay.png" alt="Anay" />
+          <h2>Anay Nayak</h2>
+          <p>Developer</p>
+          <p>
+            A backend and API virtuoso, fearlessly exploring the realms of
+            technology, building powerful and scalable systems, and seamlessly
+            integrating with APIs to unlock new possibilities.
+          </p>
+          <p>anay.nayak@somaiya.edu</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

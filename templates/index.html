@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Option Chain</title>
+    <link rel="icon" type="image/x-icon" href="../static/assets/favicon.ico" />
+    <link rel="stylesheet" href="../static/css/home.css" />
+    <link rel="stylesheet" href="../static/css/welcome.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+      .table-container {
+        display: flex;
+        justify-content: space-between;
+      }
+      .table-container table {
+        width: 48%;
+      }
+      .in_true {
+        background-color: #aaffaa94; /* Green background for "in the money" rows */
+        width: 1%;
+        white-space: nowrap;
+        backdrop-filter: blur(4px) saturate(180%);
+        text-align: center;
+      }
+
+      .in_false {
+        background-color: #ffaaaa94; /* Red background for "not in the money" rows */
+        width: 1%;
+        white-space: nowrap;
+        backdrop-filter: blur(4px) saturate(180%);
+        text-align: center;
+      }
+    </style>
+    <script>
+      function updateTable(tableId, url, optionType, sortBy) {
+        $.getJSON(url, function (data) {
+          var table = $(tableId + " tbody")
+          table.empty()
+
+          // Filter data based on the option_type
+          var filteredData = data.filter(function (row) {
+            return row["option_type"] === optionType
+          })
+
+          // Sort the filtered data based on the selected sortBy option
+          filteredData.sort(function (a, b) {
+            if (sortBy === "strike_price") {
+              return a[sortBy] - b[sortBy]
+            } else if (sortBy === "expiry_date") {
+              return new Date(a[sortBy]) - new Date(b[sortBy])
+            } else {
+              return 0
+            }
+          })
+
+          // Add rows to the table
+          $.each(filteredData, function (index, row) {
+            var inTheMoneyClass = row["In the money"] ? "in_true" : "in_false"
+            var rowHtml = '<tr class="' + inTheMoneyClass + '">'
+            rowHtml += "<td>" + row["Last Traded Price (LTP)"] + "</td>"
+            rowHtml += "<td>" + row["Volume"] + "</td>"
+            rowHtml += "<td>" + row["Bid Price"] + "</td>"
+            rowHtml += "<td>" + row["Bid Quantity"] + "</td>"
+            rowHtml += "<td>" + row["Ask Price"] + "</td>"
+            rowHtml += "<td>" + row["Ask Quantity"] + "</td>"
+            rowHtml += "<td>" + row["Open Interest (OI)"] + "</td>"
+            rowHtml += "<td>" + row["expiry_date"] + "</td>"
+            rowHtml += "<td>" + row["strike_price"] + "</td>"
+            rowHtml += "<td>" + row["underlying"] + "</td>"
+            rowHtml += "<td>" + row["implied volatility"] + "</td>"
+            rowHtml += "<td>" + row["Change in OI"] + "</td>" // Added Change in OI column
+            rowHtml += "<td>" + row["Change"] + "</td>"
+            rowHtml += "</tr>"
+            table.append(rowHtml)
+          })
+        })
+      }
+
+      $(document).ready(function () {
+        var selectedUnderlying = null // To store the selected underlying
+        var selectedExpiryDate = null // To store the selected expiry date
+        var selectedSortBy = "strike_price" // Default sort option
+
+        function updateTables() {
+          if (selectedUnderlying === null || selectedUnderlying === "All") {
+            updateTable("#pe-table", "/data", "PE", selectedSortBy) // Update PE table for all underlying with option_type="PE"
+            updateTable("#ce-table", "/data", "CE", selectedSortBy) // Update CE table for all underlying with option_type="CE"
+          } else {
+            if (selectedExpiryDate === null || selectedExpiryDate === "All") {
+              updateTable(
+                "#pe-table",
+                "/data/" + selectedUnderlying,
+                "PE",
+                selectedSortBy
+              ) // Update PE table for selected underlying with option_type="PE"
+              updateTable(
+                "#ce-table",
+                "/data/" + selectedUnderlying,
+                "CE",
+                selectedSortBy
+              ) // Update CE table for selected underlying with option_type="CE"
+            } else {
+              updateTable(
+                "#pe-table",
+                "/data/" + selectedUnderlying + "/" + selectedExpiryDate,
+                "PE",
+                selectedSortBy
+              ) // Update PE table for selected underlying and expiry_date with option_type="PE"
+              updateTable(
+                "#ce-table",
+                "/data/" + selectedUnderlying + "/" + selectedExpiryDate,
+                "CE",
+                selectedSortBy
+              ) // Update CE table for selected underlying and expiry_date with option_type="CE"
+            }
+          }
+        }
+
+        // Handler for underlying selection
+        $("#underlying-select").on("change", function () {
+          selectedUnderlying = $(this).val()
+          selectedExpiryDate = null // Reset selected expiry date
+          updateTables()
+        })
+
+        // Handler for expiry date selection
+        $("#expiry-date-select").on("change", function () {
+          selectedExpiryDate = $(this).val()
+          updateTables()
+        })
+
+        // Handler for sort option selection
+        $("#sort-by-select").on("change", function () {
+          selectedSortBy = $(this).val()
+          updateTables()
+        })
+
+        updateTables() // Initial table update
+
+        setInterval(function () {
+          updateTables() // Update tables every 5 seconds
+        }, 1000)
+      })
+    </script>
+  </head>
+
+  <body>
+    <div class="menu-wrap">
+      <input type="checkbox" class="toggler" />
+      <div class="hamburger"><div></div></div>
+      <div class="menu">
+        <div>
+          <div>
+            <ul>
+              <li><a href="/">Home</a></li>
+              <li><a href="/about">Our Team</a></li>
+              <!-- <li><a href="#">Services</a></li>
+              <li><a href="#">Contact</a></li> -->
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <img class="logo" src="../static/assets/logo.png" />
+    <div class="filter-heading">
+      <h3>Select Filters:</h3>
+    </div>
+    <div class="filter-container">
+      <div class="filter-box">
+        <label class="filter-label" for="underlying-select"
+          >Select Underlying:</label
+        >
+        <select id="underlying-select">
+          <option value="">--Select--</option>
+          <option value="All">All</option>
+          <!-- New option tag for All underlying types -->
+          {% for underlying in underlying_values %}
+          <option value="{{ underlying }}">{{ underlying }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="filter-box">
+        <label class="filter-label" for="expiry-date-select"
+          >Select Expiry Date:</label
+        >
+        <select id="expiry-date-select">
+          <option value="">--Select--</option>
+          <option value="All">All</option>
+          <!-- New option tag for All expiry dates -->
+          {% for expiry_date in expiry_dates %}
+          <option value="{{ expiry_date }}">{{ expiry_date }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="filter-box">
+        <label class="filter-label" for="sort-by-select">Sort By:</label>
+        <select id="sort-by-select">
+          <option value="">--Select--</option>
+          <option value="strike_price">Strike Price</option>
+          <option value="expiry_date">Expiry Date</option>
+        </select>
+      </div>
+    </div>
+    <div class="note">
+      <p>Note:</p>
+      <p>In the money is highlighted in <span class="note-text">green</span></p>
+      <p>5% interest rate is supplied while computing implied volatility</p>
+    </div>
+    <div class="table-wrapper">
+      <table class="options-table" id="pe-table" border="1">
+        <thead class="table-heading">
+          <tr class="main-heading">
+            <th colspan="13">PUTS</th>
+          </tr>
+          <tr class="sub-heading">
+            <th>Last Traded Price (LTP)</th>
+            <th>Volume</th>
+            <th>Bid Price</th>
+            <th>Bid Quantity</th>
+            <th>Ask Price</th>
+            <th>Ask Quantity</th>
+            <th>Open Interest (OI)</th>
+            <th>Expiry Date</th>
+            <th>Strike Price</th>
+            <th>Underlying</th>
+            <th>Implied Volatility</th>
+            <th>Change in OI</th>
+            <!-- Added Change in OI column header -->
+            <th>Change</th>
+          </tr>
+        </thead>
+        <tbody class="block"></tbody>
+      </table>
+      <table class="options-table" id="ce-table" border="1">
+        <thead>
+          <tr class="main-heading">
+            <th colspan="13">CALLS</th>
+          </tr>
+          <tr class="sub-heading">
+            <th>Last Traded Price (LTP)</th>
+            <th>Volume</th>
+            <th>Bid Price</th>
+            <th>Bid Quantity</th>
+            <th>Ask Price</th>
+            <th>Ask Quantity</th>
+            <th>Open Interest (OI)</th>
+            <th>Expiry Date</th>
+            <th>Strike Price</th>
+            <th>Underlying</th>
+            <th>Implied Volatility</th>
+            <th>Change in OI</th>
+            <!-- Added Change in OI column header -->
+            <th>Change</th>
+          </tr>
+        </thead>
+        <tbody class="block"></tbody>
+      </table>
+    </div>
+    <div style="position: fixed; bottom: 15px; right: 15px; z-index: 999">
+      <iframe
+        src="https://console.dialogflow.com/api-client/demo/embedded/c6f0f2ec-35b6-441a-9dbc-9178a37e4294"
+        id="dialogFrame"
+        allow="microphone;"
+        width="350"
+        height="430"
+        style="display: none; opacity: 0.9"
+      >
+      </iframe>
+      <button class="dialog-button" onclick="toggleIframe()"></button>
+    </div>
+    <script>
+      function toggleIframe() {
+        var iframe = document.getElementById("dialogFrame")
+        iframe.style.display =
+          iframe.style.display === "none" ? "block" : "none"
+      }
+    </script>
+  </body>
+</html>
